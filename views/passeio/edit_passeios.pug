@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h1 #{title}
+  form(method='POST', action='/passeios/edit/'+passeios._id)
+  #form-group
+    label descrição:
+    textarea.form-control(name='body')= passeios.body
+
+  #form-group
+    label Valor do Passeio:
+      input.form-control(name='valor_passeio', type='text',value=passeios.valor_passeio)
+
+  #form-control
+      label Selecione o seu Pet:
+        select.form-control(name='pet')
+          option= passeios.pet
+          each val in ['CACHORRO', 'GATO','OUTROS']
+            option= val
+  br
+
+  <button type="submit">Salvar</button>
+  <a href="/" class="cancelbtn"> Cancelar </a>

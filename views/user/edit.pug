@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+  link(href='/css/style.css', rel='stylesheet')
+
+  h1 Editar sua conta
+  form(method='POST', action='/users/update/'+user._id)
+    #form-group
+      label Nome Completo:
+      input.form-container(name='name', type='text', value=user.name, required)
+    #form-group
+      label Email:
+      input.form-container(name='email', type='text', value=user.email,required)
+    #form-group
+      label Nome de usuário:
+      input.form-container(name='username',type='text', value=user.username, required)
+    #form-group
+      label Senha:
+      input.form-container(name='password',type='password', value=user.password, required)
+    br
+    <button type="submit">Salvar</button>
+    <a href="/" class="cancelbtn"> Cancelar </a>
